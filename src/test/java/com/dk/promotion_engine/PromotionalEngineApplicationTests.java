@@ -139,15 +139,15 @@ class PromotionalEngineApplicationTests {
 	
 	@Test
 	void ValidateScenarioWithLargBundle() {
-		for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < 100000; i++) {
 			products.add(c);
 		}
-		for (int i = 0; i < 900; i++) {
+		for (int i = 0; i < 90000; i++) {
 			products.add(d);
 		}
 		Order order = new Order(products);
 		bulkPromotion.applyRule(order);
-		assertEquals(order.getOrderTotal(), 29000.00);
+		assertEquals(order.getOrderTotal(), 2900000.00);
 
 	}
 

@@ -7,10 +7,9 @@ import org.slf4j.LoggerFactory;
 
 import com.dk.promotion_engine.Order;
 
-/**
+/**Bulk promotion covers buy X amount of Y for Z amount.
  * @author Kamyar
- * Bulk promotion covers buy X amount of Y for Z amount.
- *
+ * 
  */
 public class BulkPromotion extends AbstractPromotion {
 

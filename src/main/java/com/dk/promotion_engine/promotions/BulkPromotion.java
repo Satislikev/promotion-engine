@@ -7,6 +7,11 @@ import org.slf4j.LoggerFactory;
 
 import com.dk.promotion_engine.Order;
 
+/**
+ * @author Kamyar
+ * Bulk promotion covers buy X amount of Y for Z amount.
+ *
+ */
 public class BulkPromotion extends AbstractPromotion {
 
 	private static Logger LOGGER = LoggerFactory.getLogger(BulkPromotion.class);
@@ -26,14 +31,16 @@ public class BulkPromotion extends AbstractPromotion {
 	}
 	
 	private Order calculateBulkItems(Order order,String productSKU,Long bulkQuantity, double bulkPrice) {
-		Long quanity = order.getProducts().stream().filter(product -> product.getId().equalsIgnoreCase(productSKU)).count();
-		if(quanity >= bulkQuantity) {
-			bulkPrice = (quanity/bulkQuantity) * bulkPrice;
+		//Retrieving quantity of promotion applied SKU
+		Long quantity = order.getProducts().stream().filter(product -> product.getId().equalsIgnoreCase(productSKU)).count();
+		if(quantity >= bulkQuantity) {
+			bulkPrice = (quantity/bulkQuantity) * bulkPrice;
 			order.setOrderTotal(order.getOrderTotal() + bulkPrice);
 			
 			AtomicInteger index = new AtomicInteger(0);
-			long bulkQuantityMultiplier = (quanity/bulkQuantity) * bulkQuantity;
+			long bulkQuantityMultiplier = (quantity/bulkQuantity) * bulkQuantity;
 			
+			//Using atomic operation to remove only promotion applied SKUs
 			order.getProducts().removeIf(product -> product.getId().equalsIgnoreCase(productSKU) && index.getAndIncrement() < bulkQuantityMultiplier);
 			
 		}

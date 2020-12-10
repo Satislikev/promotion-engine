@@ -1,4 +1,4 @@
-package com.dk.promotional_engine;
+package com.dk.promotion_engine;
 
 import java.util.List;
 

@@ -6,6 +6,11 @@ import org.slf4j.LoggerFactory;
 import com.dk.promotion_engine.Order;
 import com.dk.promotion_engine.Product;
 
+/**
+ * @author Kamyar
+ * Default rule applies on remaining product that did not match any of the previous rules.
+ *
+ */
 public class DefaultPrice extends AbstractPromotion {
 
 	private static Logger LOGGER = LoggerFactory.getLogger(DefaultPrice.class);

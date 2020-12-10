@@ -12,11 +12,17 @@ import org.slf4j.LoggerFactory;
 import com.dk.promotion_engine.Order;
 import com.dk.promotion_engine.Product;
 
+/**
+ * @author Kamyar Aflaki
+ * Bundle Promotion will cover buy X and Y for Z amount.  
+ *
+ */
 public class BundlePromotion extends AbstractPromotion {
 	private static Logger LOGGER = LoggerFactory.getLogger(BundlePromotion.class);
 
 	@Override
 	public Order applyRule(Order order) {
+		//This rule assumes that that quantity of promoted SKUs are same, In other word we will not have 2C and D for X price.
 		LOGGER.info("Applying bundle promotion");
 		LOGGER.info("Checking for rule C & D for 30");
 		calculateBundleItems(order, 30.00, "C", "D");

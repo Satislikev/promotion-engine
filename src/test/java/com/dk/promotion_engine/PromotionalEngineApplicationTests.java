@@ -113,5 +113,15 @@ class PromotionalEngineApplicationTests {
 		assertEquals(order.getOrderTotal(), 280.00);
 
 	}
+	
+	@Test
+	void ValidateScenarioWithZeroProducts() {
+
+		
+		Order order = new Order(products);
+		bulkPromotion.applyRule(order);
+		assertEquals(order.getOrderTotal(), 0.00);
+
+	}
 
 }

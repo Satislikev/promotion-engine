@@ -36,7 +36,7 @@ public class BundlePromotion extends AbstractPromotion {
 						
 			List<String> skus = Arrays.asList(productSKUs);
 			List<String> products = order.getProducts().stream().map(Product::getId).collect(Collectors.toList());
-			
+			// I definitely could have come up with a better algorithm to handle this rule.
 			while(products.containsAll(skus)) {
 				LOGGER.debug("Bulk match found");
 				order.setOrderTotal(order.getOrderTotal()+bundlePrice);

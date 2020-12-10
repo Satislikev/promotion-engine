@@ -10,6 +10,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.dk.promotion_engine.promotions.BulkPromotion;
+import com.dk.promotion_engine.promotions.BundlePromotion;
+import com.dk.promotion_engine.promotions.DefaultPrice;
 
 class PromotionalEngineApplicationTests {
 
@@ -19,7 +21,8 @@ class PromotionalEngineApplicationTests {
 	private Product d = new Product("D", 15.00);
 
 	private IPromotion bulkPromotion;
-
+	private IPromotion bundlePromotion;
+	private IPromotion defaultPrice;
 
 	private Order order;
 	private List<Product> products;
@@ -27,7 +30,10 @@ class PromotionalEngineApplicationTests {
 	@BeforeEach
 	public void before() throws Exception {
 		bulkPromotion = new BulkPromotion();
-
+		bundlePromotion = new BundlePromotion();
+		defaultPrice = new DefaultPrice();
+		bulkPromotion.setNextRule(bundlePromotion);
+		bundlePromotion.setNextRule(defaultPrice);
 		products = new ArrayList<>();
 
 	}

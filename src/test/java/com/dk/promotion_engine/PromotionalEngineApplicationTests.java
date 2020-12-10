@@ -116,11 +116,38 @@ class PromotionalEngineApplicationTests {
 	
 	@Test
 	void ValidateScenarioWithZeroProducts() {
-
 		
 		Order order = new Order(products);
 		bulkPromotion.applyRule(order);
 		assertEquals(order.getOrderTotal(), 0.00);
+
+	}
+	
+	@Test
+	void ValidateScenarioWithLargBulk() {
+		for (int i = 0; i < 1000; i++) {
+			products.add(a);
+		}
+		for (int i = 0; i < 1000; i++) {
+			products.add(b);
+		}
+		Order order = new Order(products);
+		bulkPromotion.applyRule(order);
+		assertEquals(order.getOrderTotal(), 65840.00);
+
+	}
+	
+	@Test
+	void ValidateScenarioWithLargBundle() {
+		for (int i = 0; i < 1000; i++) {
+			products.add(c);
+		}
+		for (int i = 0; i < 900; i++) {
+			products.add(d);
+		}
+		Order order = new Order(products);
+		bulkPromotion.applyRule(order);
+		assertEquals(order.getOrderTotal(), 29000.00);
 
 	}
 

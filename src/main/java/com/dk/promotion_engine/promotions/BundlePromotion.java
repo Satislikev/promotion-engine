@@ -17,8 +17,8 @@ import org.slf4j.LoggerFactory;
 import com.dk.promotion_engine.Order;
 import com.dk.promotion_engine.Product;
 
-/**
- * @author Kamyar Aflaki Bundle Promotion will cover buy X and Y for Z amount.
+/** Bundle Promotion will cover buy X and Y for Z amount.
+ * @author Kamyar Aflaki 
  *
  */
 public class BundlePromotion extends AbstractPromotion {

@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,8 +19,6 @@ import com.dk.promotion_engine.promotions.DefaultPrice;
  */
 @SpringBootApplication
 public class PromotionEngineApplication implements CommandLineRunner {
-
-	private static Logger LOGGER = LoggerFactory.getLogger(PromotionEngineApplication.class);
 
 	private IPromotion bulkPromotion;
 	private IPromotion bundlePromotion;

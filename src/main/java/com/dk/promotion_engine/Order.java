@@ -5,7 +5,6 @@ import java.util.List;
 public class Order {
 	
 	public Order(List<Product> products) {
-		super();
 		this.products = products;
 	}
 

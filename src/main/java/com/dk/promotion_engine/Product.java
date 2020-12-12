@@ -3,7 +3,6 @@ package com.dk.promotion_engine;
 public class Product {
 
 	public Product(String id, double price) {
-		super();
 		this.id = id;
 		this.price = price;
 	}

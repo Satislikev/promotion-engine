@@ -103,7 +103,7 @@ public class PromotionEngineApplication implements CommandLineRunner {
 			if (i<0) {
 				System.out.println("WARNING : Please note negative quantity is considered as 0");
 			}
-			if(i>500000000) {
+			if(i>5000) {
 				System.out.println("Quanity is outside of supported range");
 				System.exit(1);
 			}
